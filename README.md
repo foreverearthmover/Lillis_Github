@@ -1,4 +1,4 @@
-# **🕸️Lilli's Git Repository🕸️**
+# ***🕸️Lilli's Git Repository🕸️***
 #### This is where I'll be uploading my assignments!
 
 ![me programming](https://i.pinimg.com/736x/45/63/af/4563af0984f8fedabd22e938cd938441.jpg)
