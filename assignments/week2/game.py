@@ -16,7 +16,7 @@ def display_intro():
           "\nYou can hear leaves rustling and water trickling. ")
     time.sleep(1)
     print("It's pitch black outside but you can see something shimmering in the distance.")
-    time.sleep(2)
+    time.sleep(1)
     print_animation("What will you do, ", player_name, "?")
 
 def update_player_health(change, message):
