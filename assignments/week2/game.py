@@ -118,7 +118,7 @@ def scenario3a():
                                    "\nEven as the sky turns bright and the trees turn their usual color, the days "
                                    "feel like a dream. You can't tell where the living begins. \nThe sleep becomes "
                                    "the day and the dream becomes the life. You hear a dark voice, calling out... "
-                                   "for you... You run towards it but.. it's all one now. \nYou lost your mind. ")
+                                   "for you... You run towards it but.. 𝐢⃥⃒̸𝐭⃥⃒̸'⃥⃒̸𝐬⃥⃒̸ 𝐚⃥⃒̸𝐥⃥⃒̸𝐥⃥⃒̸ 𝐨⃥⃒̸𝐧⃥⃒̸𝐞⃥⃒̸ 𝐧⃥⃒̸𝐨⃥⃒̸𝐰⃥⃒̸. \nYou lost your mind. ")
         time.sleep(2)
         end_game()
     else:
@@ -131,13 +131,14 @@ def scenario3b():
     choice = input("Choose your option: ")
     if choice == "1":
         update_player_health(-100, "Your foot has gotten worse but you keep going. \nAfter what feels like hours "
-                                   "of uninterrupted walking, you can't bear the pain anymore. You decide to lift your"
+                                   "of uninterrupted walking, you can't bear the pain anymore. You decide to lift up your "
                                    "foot and look at the damage. \nIt's bad. Maybe you shouldn't have kept going. "
-                                   "The rocks in the river slashed up your skin and the long distance over the forest "
+                                   "\nThe rocks in the river slashed up your skin and the long distance over the forest "
                                    "floor additionally roughed it up. \nThere's also a layer of dirt and rotten plant "
                                    "mass. You're kinda freaking out. \nYou realize you can't keep going and lay down on "
-                                   "the ground. \nIt's so cold. Your wet clothes cling to your frail body. All resources "
-                                   "you had left have been used up. The cold wind cuts your skin. You give up.")
+                                   "the ground. \nIt's so cold. \nYour wet clothes cling to your frail body. All resources "
+                                   "you had left have been used up. The cold wind cuts your skin."
+                                   "\n You give up. ")
         time.sleep(2)
         end_game()
     elif choice == "2":
