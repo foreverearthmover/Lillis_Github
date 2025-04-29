@@ -1,45 +1,50 @@
-import time
+# Escape Game - Refactored Version
+# Function of the program
 
-player_health = 100
-player_name = input("What's your name, traveller? ")
+import time # imports module needed for delayed print animation
+
+# constants
+PLAYER_NAME = input("What's your name, traveller? ")
+DEBUG = True
+player_health = 100 # player's health starts at 100
 
 
-def print_animation(*text_parts):
+def print_animation(*text_parts): # tuple
     text = "".join(str(part) for part in text_parts)
     for char in text:
         print(char, end="", flush=True)
         time.sleep(0.03)
     print()
 
-
+# Introduction and input player name
 def display_intro():
-    print_animation("It's nice to meet you, ", player_name, ". "
-                                                            "You woke up in the woods. You have no idea where you are and how you got here. "
-                                                            "\nYou can hear leaves rustling and water trickling. ")
+    print_animation("It's nice to meet you, ", PLAYER_NAME, ". "
+                              "You woke up in the woods. You have no idea where you are "
+                              "and how you got here. \nYou can hear leaves rustling and water trickling. ")
     time.sleep(1)
     print("It's pitch black outside but you can see something shimmering in the distance.")
     time.sleep(1)
-    print_animation("What will you do, ", player_name, "?")
+    print_animation("What will you do, ", PLAYER_NAME, "?")
 
 
 def update_player_health(change, message):
-    global player_health
-    player_health += change
-    player_health = max(0, player_health)
+    global player_health # global variable so that it updates after each scenario, tracking health across the game
+    player_health += change # adds/subtracts the change value to current health
+    player_health = max(0, player_health) # prevents negative health values
     print_animation(message)
     print("\nYour health is now:", player_health, "\n")
     if player_health <= 0:
         end_game()
-        exit()
+        exit() # player "dies" after choosing options that decrease their player health to 0
 
 
-def end_game():
+def end_game(): # player either "wins" or loses the game; is called after all scenarios of a branch
     if player_health <= 0:
         print_animation("Game Over.")
     else:
         print_animation("You made it out.")
 
-
+# user chooses one of the actions, choice determines which scenario plays out next
 def scenario1():
     print("1. Investigate the strange shimmer.")
     print("2. Stay where you are, look around.")
@@ -48,17 +53,17 @@ def scenario1():
         update_player_health(-5, "You try to sneak up behind a tree without making too much noise. "
                                  "Ouch! You stepped on a pinecone! -5 health \nAfter a short moment of pain and "
                                  "agony, you concentrate on what's in front of you. \nIs that some kind of... pond? ")
-        scenario2a()
+        scenario2a() # leads to the next scenario
     elif choice == "2":
         update_player_health(0, "Your eyes slowly adjust to the darkness but your surroundings "
                                 "are still hard to make out. \nYou start to concentrate on your senses. There's a "
                                 "low, vibrating sound coming from the distance. \nIs that a voice? Is it calling "
-                                "for you, " + player_name + "? ")
+                                "for you, " + PLAYER_NAME + "? ")
         time.sleep(2)
-        scenario2b()
+        scenario2b() # leads to the next scenario
     else:
         print("Invalid choice.")
-        scenario1()
+        scenario1() # resets scenario: takes the user back to the beginning until they enter valid input
 
 
 def scenario2a():
@@ -71,7 +76,7 @@ def scenario2a():
                                   "getting worse. -15 health \nYou become anxious thinking about how long you've "
                                   "already been walking. ")
         time.sleep(2)
-        scenario3a()
+        scenario3a() # leads to the next scenario
     elif choice == "2":
         update_player_health(-15, "You roll up your pants and carefully place your right foot into the water. "
                                   "It's cold and you can feel rocks beneath you. Every following step hurts. -15 health"
@@ -80,10 +85,10 @@ def scenario2a():
                                   "\nDamn, thank god you didn't try to walk around the edge, you probably would have "
                                   "gotten lost after a while. ")
         time.sleep(2)
-        scenario3b()
+        scenario3b() # leads to the next scenario
     else:
         print("Invalid choice.")
-        scenario2a()
+        scenario2a() # resets scenario
 
 
 def scenario2b():
@@ -94,16 +99,16 @@ def scenario2b():
         update_player_health(-10, "After standing still for a moment you sense a shift in the atmosphere "
                                   "\nSomething changed. You're not sure what it is. ")
         time.sleep(2)
-        scenario3c()
+        scenario3c() # leads to the next scenario
     elif choice == "2":
         update_player_health(0, "You follow the sound, it keeps getting louder and louder until.."
                                 "\nIt stops. You start to panic, you have no remaining sense of orientation and "
                                 "\nit's gotten... colder? ")
         time.sleep(2)
-        scenario3c()
+        scenario3c() # leads to the next scenario
     else:
         print("Invalid choice.")
-        scenario2b()
+        scenario2b() # resets scenario
 
 
 def scenario3a():
@@ -118,7 +123,7 @@ def scenario3a():
                                 "are your people? Do you know anyone? Do you even.. speak their language? Are you "
                                 "still.. alone? ")
         time.sleep(2)
-        end_game()
+        end_game() # ending a1: all scenarios of the branch have been played
     elif choice == "2":
         update_player_health(-100, "You turn around and proceed to walk. After only a few minutes in, \nyou "
                                    "realize that you don't remember where you came from, where the river was "
@@ -128,10 +133,10 @@ def scenario3a():
                                    "the day and the dream becomes the life. You hear a dark voice, calling out... "
                                    "for you... You run towards it but.. 𝐢⃥⃒̸𝐭⃥⃒̸'⃥⃒̸𝐬⃥⃒̸ 𝐚⃥⃒̸𝐥⃥⃒̸𝐥⃥⃒̸ 𝐨⃥⃒̸𝐧⃥⃒̸𝐞⃥⃒̸ 𝐧⃥⃒̸𝐨⃥⃒̸𝐰⃥⃒̸. \nYou lost your mind. ")
         time.sleep(2)
-        end_game()
+        end_game() # ending a2
     else:
         print("Invalid choice.")
-        scenario3a()
+        scenario3a() # resets scenario
 
 
 def scenario3b():
@@ -149,7 +154,7 @@ def scenario3b():
                                    "you had left have been used up. The cold wind cuts your skin."
                                    "\n You give up. ")
         time.sleep(2)
-        end_game()
+        end_game() # ending b1
     elif choice == "2":
         update_player_health(0, "You end up passing out from the pain. \nYou didn't even notice you "
                                 "fell out of consciousness until you're back. \nIt's bright, you can tell, even "
@@ -160,10 +165,10 @@ def scenario3b():
                                 "he asks. The question echoes in your mind. \nYou don't remember where you came from- "
                                 "like... at all.")
         time.sleep(2)
-        end_game()
+        end_game() # ending b2
     else:
         print("Invalid choice.")
-        scenario3b()
+        scenario3b() # resets scenario
 
 
 def scenario3c():
@@ -176,7 +181,7 @@ def scenario3c():
         time.sleep(2)
         print_animation("You lose consciousness.")
         time.sleep(1)
-        end_game()
+        end_game() # ending c1
     elif choice == "2":
         update_player_health(-100, "For a second, you're stunned. Then, fueled with adrenaline, you dash, "
                                    "you're not sure where. \nThe ground beneath your feet hurts and you almost lose your "
@@ -186,15 +191,16 @@ def scenario3c():
                                    "they've been ripped in half. Are you underwater? \nNo time to think- You feel "
                                    "everything around you moving, you try to hold onto something but- ")
         time.sleep(2)
-        end_game()
+        end_game() # ending c2
     else:
         print("Invalid choice.")
-        scenario3c()
+        scenario3c() # resets scenario
 
 
-def play_game():
-    display_intro()
-    scenario1()
+def main():
+    display_intro() # first user input
+    scenario1() # start of game: first branch
 
 
-play_game()
+if __name__ == "__main__":
+    main() # entry point of the game
