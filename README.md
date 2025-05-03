@@ -23,7 +23,7 @@ It's inspired by this song:  [The Cure - The Forest](https://www.youtube.com/wat
 - As well as some methods and built_in functions!
 ---
 ##### 4th session - What I learned today:
-I mainly learnt about functions ^_^  
+I mainly learnt about functions 
 Now I also know how to refactor and clean up my code;  
 For my assignment I will refactor my game from the 2nd session so that  
 the readability and effectiveness of my code is improved!
