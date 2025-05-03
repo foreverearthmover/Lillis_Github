@@ -1,25 +1,24 @@
 # Escape Game - Refactored Version
-# Function of the program
 
 import time # imports module needed for delayed print animation
 
 # constants
 PLAYER_NAME = input("What's your name, traveller? ")
-DEBUG = True
+DEBUG = False
 player_health = 100 # player's health starts at 100
 
 
-def print_animation(*text_parts): # tuple
-    text = "".join(str(part) for part in text_parts)
-    for char in text:
-        print(char, end="", flush=True)
-        time.sleep(0.03)
+def print_animation(*text_parts): # tuple, so that different values are automatically passed
+    text = "".join(str(part) for part in text_parts) # all text parts are joined into a string
+    for char in text: # loops through each character of the combined string
+        print(char, end="", flush=True) # one character printed at a time, printed immediately on one line
+        time.sleep(0.03) # 0.03 sec delay between characters
     print()
 
 # Introduction and input player name
 def display_intro():
-    print_animation("It's nice to meet you, ", PLAYER_NAME, ". "
-                              "You woke up in the woods. You have no idea where you are "
+    print_animation("It's nice to meet you, ", PLAYER_NAME, "."
+                              "\nYou woke up in the woods. You have no idea where you are "
                               "and how you got here. \nYou can hear leaves rustling and water trickling. ")
     time.sleep(1)
     print("It's pitch black outside but you can see something shimmering in the distance.")
@@ -31,8 +30,9 @@ def update_player_health(change, message):
     global player_health # global variable so that it updates after each scenario, tracking health across the game
     player_health += change # adds/subtracts the change value to current health
     player_health = max(0, player_health) # prevents negative health values
-    print_animation(message)
-    print("\nYour health is now:", player_health, "\n")
+    print_animation(message) # also displays a string that serves narrative
+    print("\nYour health is now:\n")
+    return player_health
     if player_health <= 0:
         end_game()
         exit() # player "dies" after choosing options that decrease their player health to 0
@@ -198,7 +198,7 @@ def scenario3c():
 
 
 def main():
-    display_intro() # first user input
+    display_intro() # first user input and introduction to game objective
     scenario1() # start of game: first branch
 
 
