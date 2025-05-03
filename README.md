@@ -18,7 +18,7 @@ It's inspired by this song:  [The Cure - The Forest](https://www.youtube.com/wat
 ---
 #### 3rd session - What I learned today:
 - How for/while loops work and what you can use them for
-- How to manage lists & index items etc.
+- How to manage lists, index items, etc.
 - Ways to use randomization via the random module
 - As well as some methods and built_in functions!
 ---
