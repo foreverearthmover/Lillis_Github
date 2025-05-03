@@ -30,13 +30,12 @@ def update_player_health(change, message):
     global player_health # global variable so that it updates after each scenario, tracking health across the game
     player_health += change # adds/subtracts the change value to current health
     player_health = max(0, player_health) # prevents negative health values
-    print_animation(message) # also displays a string that serves narrative
-    print("\nYour health is now:\n")
-    return player_health
+    print_animation(message) # also displays a string
+    print("\nYour health is now: ", player_health, "\n")
     if player_health <= 0:
         end_game()
         exit() # player "dies" after choosing options that decrease their player health to 0
-
+    return player_health
 
 def end_game(): # player either "wins" or loses the game; is called after all scenarios of a branch
     if player_health <= 0:
