@@ -1,18 +1,23 @@
 # Escape Game - Refactored Version
+# In this game, you try to escape from a forest by choosing different actions.
+# Each decision will lead to different situations and determine if and how you make it out.
+# This is the refactored version, meaning I have made slight adjustments to the code to make it more maintainable
 
 import time # imports module needed for delayed print animation
 
 # constants
-PLAYER_NAME = input("What's your name, traveller? ")
+ANIMATION_DELAY = 0.03 # seconds between characters
+INITIAL_HEALTH = 100 # players health starts at 100
 DEBUG = False
-player_health = 100 # player's health starts at 100
 
+PLAYER_NAME = input("What's your name, traveller? ")
+player_health = INITIAL_HEALTH # using the constant instead of hardcoded 100
 
-def print_animation(*text_parts): # tuple, so that different values are automatically passed
-    text = "".join(str(part) for part in text_parts) # all text parts are joined into a string
-    for char in text: # loops through each character of the combined string
-        print(char, end="", flush=True) # one character printed at a time, printed immediately on one line
-        time.sleep(0.03) # 0.03 sec delay between characters
+def print_animation(*text_parts): # tuple allows multiple values to be automatically passed
+    text = "".join(str(part) for part in text_parts) # all text parts joined into string
+    for char in text: # loop through each character of combined string
+        print(char, end="", flush=True) # one character at a time, printed on one line
+        time.sleep(ANIMATION_DELAY)  # Using the constant instead of hardcoded 0.03
     print()
 
 # Introduction and input player name
@@ -197,7 +202,7 @@ def scenario3c():
 
 
 def main():
-    display_intro() # first user input and introduction to game objective
+    display_intro() # first user input and introduction to the game's objective
     scenario1() # start of game: first branch
 
 
