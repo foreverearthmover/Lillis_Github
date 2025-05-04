@@ -17,7 +17,7 @@ def print_animation(*text_parts): # tuple allows multiple values to be automatic
     text = "".join(str(part) for part in text_parts) # all text parts joined into string
     for char in text: # loop through each character of combined string
         print(char, end="", flush=True) # one character at a time, printed on one line
-        time.sleep(ANIMATION_DELAY)  # Using the constant instead of hardcoded 0.03
+        time.sleep(ANIMATION_DELAY) # Using the constant instead of hardcoded 0.03
     print()
 
 # Introduction and input player name
