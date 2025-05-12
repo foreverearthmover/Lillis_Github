@@ -33,7 +33,7 @@ rooms = {
                        "\nIt's eyes are locked on you... Are you it's prey...? "
                        "\nDo something!",
         "items": [
-            {"name": "Mystic Dagger", "type": "weapon", "description": "Gleams with ancient energy..."
+            {"name": "Mystic Dagger", "type": "weapon", "description": "The weapon gleams with ancient energy..."
                                                                        "Maybe this could defeat the cat?"}
         ],
         "next": None
@@ -95,7 +95,7 @@ def pick_up(item_name):
 def drop(item_name):
     # drop an item from your inventory, at the same time append it back to the list of items for the room
     global inventory
-    item = find_item((item_name, inventory))
+    item = find_item(item_name, inventory)
     if item:
         inventory.remove(item)
         rooms[current_room]["items"].append(item)
@@ -118,7 +118,8 @@ def use(item_name):
         print("You raise the Mystic Dagger to strike the cat...")
         print("But before you do.... the cat speaks!")
         print("\n\"Why did you try to attack me??? I was just sitting here!! People have no manners these days.\"")
-        print("The cat vanishes. And with it... a door behind it does too.\n")
+        print("The cat vanishes. And with it... a door behind it does too. "
+              "\nYou're trapped here now... \n")
         exit()
     elif item['type'] == "quest" and item['name'] == "Treats" and current_room == "third room":
         print("You offer the cat treats. The cat purrs and allows you to pass.")
