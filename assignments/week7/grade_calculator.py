@@ -2,7 +2,7 @@ from sys import argv
 import csv
 import random
 
-WEEKS = [f"Week {i}" for i in range(1, 12) if i != 6]
+WEEKS = [f"Week {i}" for i in range(1, 14) if i != 6]
 MAX_SCORE = 3
 students = []
 
@@ -49,8 +49,8 @@ def calculate_all():
             value = student.get(week, '').strip()
             if value.isdigit():
                 scores.append(int(value))
-        student["total"] = calculate_total(scores)
-        student["average"] = calculate_average(scores)
+        student["Total Points"] = calculate_total(scores)
+        student["Average Points"] = calculate_average(scores)
     # loop through all the students and calculate grades
 
 def calculate_total(scores):
