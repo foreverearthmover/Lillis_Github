@@ -3,10 +3,14 @@ import random
 import sys
 from sys import argv
 import time
+import os
 
 WEEKS = [f"Week {i}" for i in range(1, 14) if i != 6]
 MAX_SCORE = 3
 students = []
+
+def clear():
+    os.system( 'cls' )
 
 def loading_animation():
     print("Loading:")
@@ -104,15 +108,16 @@ if __name__ == "__main__":
 
     populate_scores(filename)
     calculate_all()
+    clear()
 
-    user_name = input("What's your user name?")
+    user_name = input("What's your user name? ")
 
     newname = filename.split(".")[0] + "_calculated_by_" + user_name + ".csv"
 
     loading_animation()
 
     write_csv(newname)
-    print("New file written:", newname)
+    print("✅ New file written:", newname)
 
     print_analysis()
 
