@@ -1,10 +1,26 @@
-from sys import argv
 import csv
 import random
+import sys
+from sys import argv
+import time
 
 WEEKS = [f"Week {i}" for i in range(1, 14) if i != 6]
 MAX_SCORE = 3
 students = []
+
+def loading_animation():
+    print("Loading:")
+
+    # animation found on stackoverflow: https://stackoverflow.com/a/61602308
+    animation = ["[■□□□□□□□□□]", "[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]",
+                 "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
+
+    for i in range(len(animation)):
+        time.sleep(0.2)
+    sys.stdout.write("\r" + animation[i % len(animation)])
+    sys.stdout.flush()
+
+    print("\n")
 
 # Step 1
 def read_csv(filename):
@@ -15,9 +31,9 @@ def read_csv(filename):
             for line in f:
                 print(line)
     except FileNotFoundError:
-        print("CVS file was not found.")
+        print("❗ERROR: CVS file was not found.")
     except PermissionError:
-        print("No permission to access the file.")
+        print("❗ERROR: No permission to access the file.")
 
 # Step 2
 def populate_scores(filename):
@@ -64,14 +80,14 @@ def calculate_average(scores):
 
 def write_csv(new_filename):
     if not students:
-        print("No data to write.")
+        print("❗ERROR: No data to write.")
         return
     fieldnames = list(students[0].keys())
     with open(new_filename, mode='w', newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(students)
-    print("Updated CSV saved as:", new_filename)
+    print("✅ Updated CSV saved as:", new_filename)
 
 # Bonus
 
@@ -92,6 +108,9 @@ if __name__ == "__main__":
     user_name = input("What's your user name?")
 
     newname = filename.split(".")[0] + "_calculated_by_" + user_name + ".csv"
+
+    loading_animation()
+
     write_csv(newname)
     print("New file written:", newname)
 
