@@ -21,7 +21,7 @@ class Cat:
     def __init__(self):
         self.pos_x = 100
         self.pos_y = 100
-        img = pygame.image.load("cat....png")
+        img = pygame.image.load("cat.png")
         self.original_img = pygame.transform.scale(img, (150, 150))
         self.img = self.original_img.copy()
 
