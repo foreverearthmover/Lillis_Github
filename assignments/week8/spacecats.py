@@ -44,11 +44,8 @@ class Cat:
         # position calculation
         self.animate()
 
-    def flip(self):
-        self.original_img = pygame.transform.flip(self.original_img, True, random.choice([True, False]))
-
     def tint(self):
-        self.original_img.fill((*self.tint_color, 100), special_flags=pygame.BLEND_ADD)
+        self.original_img.fill((*self.tint_color, 50), special_flags=pygame.BLEND_ADD)
 
     def animate(self):
         # circle
