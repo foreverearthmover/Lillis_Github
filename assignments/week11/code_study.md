@@ -13,7 +13,7 @@ using caching. It's also not very old, maintained and has a few stars.
 ---
 2. #### What does the program do? What's the general structure?  
   
-The program uses pygame, engine (src/core/engine.py) and camera (src/core/camera, used for  
+The program uses pygame, engine (src/core/engine.py) and camera (src/core/camera.py, used for  
 drawing relative to the screen) to handle the animation of sprites.  
 It's dictionary loaded caches loaded images.
 It defines three main classes:  
