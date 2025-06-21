@@ -8,7 +8,7 @@ I found the code on GitHub by searching up "python adventure game" which is the 
 project. I chose the sprite.py file in the adventure_game_python/src/components path because I want to create a  
 graphical interface as well as add simple animation. The code at hand seems to be very well optimized to handle the  
 loading of sprites/image frames by having a modular construction of classes that build up on each other and by  
-using caching. 
+using caching. It's also not very old, maintained and has a few stars.
 
 ---
 2. #### What does the program do? What's the general structure?  
@@ -126,7 +126,7 @@ There are definitely some things I could learn from the code. Before, I really o
 wasn't aware how they are specifically used. It makes sense now that you have to individually extract sub-images and  
 cycle through those but I wouldn't have known how to do that well beforehand. I think it's really clever how the  
 person who coded this used base and subclasses for this process and the way the entirety of the code in the repository  
-is modularized.
+is modularized. Maybe I can use some of these functions when trying to make my own sprite management system.
 
 ---
 5. #### What parts of the code were confusing or difficult to understand at the beginning?  
